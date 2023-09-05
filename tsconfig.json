@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "sourceMap": true,
+      "outDir": "dist",
+      "lib": ["esnext"],
+      "esModuleInterop": true
+    }
+  }
+
+
+  //this file is just configuring the typescript compiler ,get rid of the strict:true mode (remmoved from the above code)
