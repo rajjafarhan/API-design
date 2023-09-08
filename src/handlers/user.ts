@@ -1,16 +1,25 @@
 import prisma from "../db";
 import { createJWT, hashPassword,comparePassword } from "../modules/auth";
 
-export const createNewUser= async(req,res)=>{
-    const user =await prisma.user.create({
-        data:{
-            username:req.body.username, //this is the username that user will send to us
-            password:await hashPassword(req.body.password) //this is the password that user will send to us
-        }
-    })
-     const token =createJWT(user)
-     res.json({token})
+export const createNewUser= async(req,res,next)=>{
+    try{
+
+        const user =await prisma.user.create({
+            data:{
+                username:req.body.username, //this is the username that user will send to us
+                password:await hashPassword(req.body.password) //this is the password that user will send to us
+            }
+        })
+        const token =createJWT(user)
+        res.json({token})
+    }
+
+    catch(e){
+        e.type = 'input'
+        next(e)   
+    }
 }
+
 
 export const signin=async(req,res)=>{
     const user=await prisma.user.findUnique({
