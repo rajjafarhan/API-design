@@ -1,11 +1,14 @@
 {
-    "compilerOptions": {
-      "sourceMap": true,
-      "outDir": "dist",
-      "lib": ["esnext"],
-      "esModuleInterop": true
-    }
-  }
-
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": false,
+    "lib": ["esnext"],
+    "esModuleInterop": true,
+    "declaration": true
+  },
+  "include": ["src/**/*.ts"]
+}
 
   //this file is just configuring the typescript compiler ,get rid of the strict:true mode (remmoved from the above code)

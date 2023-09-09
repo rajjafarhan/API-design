@@ -50,6 +50,12 @@ body('updateId').exists().isString(),
 ()=>{})
 router.delete('/updatepoint/:id',()=>{}) 
 
+router.use((err,req,res,next)=>{
+    console.log(err)
+    res.json({messsage:"something went wrong in router handler"})
+
+})
+
 export default router
 
 

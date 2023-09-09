@@ -16,9 +16,7 @@ app.use(express.urlencoded({extended:'true'})) //allows a client to add things l
 
 
 app.get('/', (req,res)=>{
-    console.log('hello from the server')
-    res.status(200)
-    res.json({message:'hello'})
+  res.json({message:'hello'})
 })
 
 app.use('/api',protect,router)
